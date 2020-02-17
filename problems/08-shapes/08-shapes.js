@@ -53,8 +53,49 @@ function printShape(shape, height, character)
       }
     }
     break
-    }
- }  
+
+    case "Diamond":
+      {
+        let spc = height
+        //Outer for loop draws each completed row
+        for(let i=0;i<height;i++)
+        {
+          //add the spaces before drawing the symbol
+          for(let j=0; j<spc;j++)
+            {
+              str+=" ";
+            }
+
+            spc--
+          //this draws the symbol
+          for(let j=0; j<2*i-1;j++)
+            {
+              str+=character;
+            }
+        str+="\n"
+        }
+
+        spc = 0
+        for(let i=0;i<height;i++)
+        {
+          for(let j=0; j<spc;j++)
+          {
+            str+=" "
+          }
+
+          spc++
+
+          for(let j=0; j<2*(height-i)-1;j++)
+          {
+            str+= character
+          }
+          str+="\n"
+        }
+        console.log(str)
+      }
+    }//end of switch
+  }// end of function
+
 
 
 printShape("Square", 5, '%')
